@@ -10,8 +10,13 @@ export class InlineService {
     this._window = windowRef.nativeWindow;
   }
 
-  createPlayer(trackingData: InlineManualTracking) {
-    this._window.createInlineManualPlayer(trackingData);
+  setTracking(trackingData: InlineManualTracking) {
+    this._window.inlineManualTracking = trackingData;
+  }
+
+  createPlayer() {
+      const trackingData = this._window.inlineManualPlayerData || null;
+      this._window.createInlineManualPlayer(trackingData);
   }
 
   updatePlayer() {

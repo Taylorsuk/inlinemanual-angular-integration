@@ -20,7 +20,9 @@ export class AuthenticationService {
           email: this.user.email,
           name: this.user.name
         }
-        this.inlineService.createPlayer(this.trackingObj);
+
+        this.inlineService.setTracking(this.trackingObj);
+        this.inlineService.createPlayer();
 
       }).catch(error) => {
       console.error(error);
