@@ -31,6 +31,14 @@ or
       };
     this.inlineService.createPlayer(this.trackingData);
 
+**Navigation / Router changes**
+We don't want to perform refreshes / re-directs in the normal sense so we can detect the changes of route by adding `(activate)="changeOfRoutes($event)"` to the `<router-outlet>` which is most probably on `app.component.html`. Then within `app.component.ts` we can do
+
+    changeOfRoutes(event)  {
+      this.inlineService.updatePlayer();
+    }
+
+
 **Notes**
 Example 1 is called in `ngAFterInit` to ensure that the `<script>` has been loaded from the remote source. Calling functions on `_window` before this will give undefined errors. 
 
