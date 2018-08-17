@@ -1,0 +1,1 @@
+# inlinemanual-angular-integration
