@@ -20,7 +20,8 @@ export class InlineService {
   }
 
   updatePlayer() {
-    this._window.inline_manual_player.update();
+    if (!this._window.inline_manual_player) { return; }
+      this._window.inline_manual_player.update();
   }
 
   activateTopic(id: string) {
