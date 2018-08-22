@@ -15,21 +15,37 @@ export class InlineService {
   }
 
   createPlayer() {
-      const trackingData = this._window.inlineManualPlayerData || null;
+    const trackingData = this._window.inlineManualPlayerData || null;
+    try {
       this._window.createInlineManualPlayer(trackingData);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   updatePlayer() {
     if (!this._window.inline_manual_player) { return; }
+    try {
       this._window.inline_manual_player.update();
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   activateTopic(id: string) {
-    this._window.inline_manual_player.activateTopic(id);
+    try {
+      this._window.inline_manual_player.activateTopic(id);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   showPanel() {
-    this._window.inline_manual_player.showPanel();
+    try {
+      this._window.inline_manual_player.showPanel();
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   // incomplete examples
